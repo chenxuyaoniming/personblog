@@ -22,6 +22,11 @@ body {
     position: absolute;
     right: 20px;
     top: 20px; }
+    #index-bg #index-user p {
+      font-family: abc;
+      color: #81effd;
+      margin-right: 20px;
+      float: left; }
     #index-bg #index-user a {
       margin: 0 10px;
       text-decoration: none;
@@ -55,6 +60,7 @@ body {
     display: flex;
     justify-content: space-around; }
     #index-content-wrap #index-content div {
+      display: none;
       font-family: abc;
       height: 250px;
       width: 220px;

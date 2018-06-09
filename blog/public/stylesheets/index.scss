@@ -22,6 +22,12 @@ body{
         position: absolute;
         right: 20px;
         top: 20px;
+        p{
+            font-family: abc;
+            color: rgb(129, 239, 253);
+            margin-right: 20px;
+            float: left;
+        }
         a{
             margin: 0 10px;
             text-decoration: none;
@@ -65,6 +71,7 @@ body{
         display: flex;
         justify-content: space-around;
         div{
+            display: none;
             font-family: abc;
             height: 250px;
             width: 220px;

@@ -1,0 +1,223 @@
+*{
+    margin:0;
+    padding:0;
+}
+li{
+    list-style: none;
+}
+@font-face{
+    font-family: abc;
+    src: url(font/iconfont.ttf)
+}
+body{
+    width: 100vw;
+    height: 100vh;
+    background: url(/images/zoom-bg-7.jpg) no-repeat center/cover;
+}
+    #p-bg{
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        p{
+            font-family: abc;
+            color: rgb(129, 239, 253);
+            margin-right: 20px;
+            float: left;
+        }
+        a{
+            margin: 0 10px;
+            text-decoration: none;
+            color: rgb(44, 8, 11);
+            padding: 4px 6px;
+            background: rgb(190, 188, 194);
+            border-radius: 3px;
+            transition: 0.4s;
+            &:hover{
+                    color: #000;
+                    background: #fff;
+            }
+        }
+       
+    }
+
+    #p-content-wrap{
+        
+        #p-content{
+            margin: 50px auto 0;
+            padding: 20px;
+            box-sizing: border-box;
+            width: 1000px;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            background: rgba(255, 255, 255, .5);
+            #p-content-left{
+                float: left;
+                width: 300px;
+                height: 600px;
+                background:rgba(255, 255, 255, .5);
+                border-radius: 15px;
+                padding: 10px;
+                box-sizing: border-box;
+                >img{
+                    display: block;
+                    margin: 0 auto;
+                    width: 80%;
+                    padding: 10px;
+                    box-sizing: border-box;
+                    border-radius: 50%;
+                    background:#fff;
+                }
+                #p-content-left-bottom{
+                    p{
+                        text-align: left;
+                        text-indent: 40px;
+                        font-size: 20px;
+                        margin-top: 10px;
+                        margin-left: -400px;
+                        height: 30px;
+                        line-height: 30px;
+                        color: rgb(65, 57, 57);
+                        border-bottom: 1px solid rgb(102, 102, 102);
+                    }
+                }   
+            }
+            #p-content-right{
+                height: 600px;
+                width: 650px;
+                float: right;
+                border-radius: 15px;
+                background:rgba(255, 255, 255, .5);
+                ul{
+                    width: 600px;
+                    height: 550px;
+                    margin: 25px auto;
+                    // border:1px solid #000;
+                    border-radius: 15px;
+                    overflow: hidden;
+                    display: none;
+                    li{
+                        // width: 100px;
+                    
+                        float: left;
+                        >p{
+                            width:100px;
+                            font-size: 60px;
+                            text-align: center;
+                            background: red;
+                            height: 550px;
+                            float: left;
+                            color: #eeeeee;
+                            background: rgba($color: #81eb66, $alpha: 0.4);
+                            font-family: 'Times New Roman', Times, serif;
+                            padding-top: 40px;
+                            cursor: pointer;
+                        }
+                        div{
+                            float: left;
+                            overflow: hidden;
+                            background: rgba($color: #b0da3e, $alpha: 0.4);
+                        }
+                        &:nth-of-type(1){
+                            >div{
+                                width: 200px;
+                                float: left;
+                                height: 550px;
+                                img{
+                                    width: 80%;
+                                    display: block;
+                                    border-radius: 5px;
+                                    margin: 17px auto;
+                                }
+                            }
+                        }
+                        &:nth-of-type(2){
+                            >div{
+                                width: 0px;
+                                height: 550px;
+                                img{
+                                    width: 80%;
+                                    display: block;
+                                    border-radius: 5px;
+                                    margin: 17px auto;
+                                }
+                            }
+                        }
+                        &:nth-of-type(3){
+                            >div{
+                                width: 0px;
+                                height: 550px;
+                                img{
+                                    width: 80%;
+                                    display: block;
+                                    border-radius: 5px;
+                                    margin: 10px auto;
+                                }
+                            }
+                        }
+                        &:nth-of-type(4){
+                            >div{
+                                width: 0px;
+                                height: 550px;
+                              #book{
+                                  width: 180px;
+                                  height: 300px;
+                                  margin: 30px 10px;
+                                  background: #5682d3;
+                                  position: relative;
+                                  box-shadow: 0 0 10px 0 rgb(128, 127, 127);
+                                  >p{
+                                      font-size: 24px;
+                                      position: absolute;
+                                      right: 10px;
+                                      top: 30px;
+                                      width: 30px;
+                                      height: 240px;
+                                      background: #fff;
+                                      border: 1px solid #000;
+                                      text-align: center;
+                                  }
+                              }
+                            }
+                        }
+                        
+                    }
+                }
+            }
+            &:after{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    border-radius: 15px;
+                    background-color: rgba(255,255,255,0.8);
+                    background: url(/images/zoom-bg-7.jpg) no-repeat center/cover;
+                    z-index: -1;
+                    background-attachment: fixed;
+                    -webkit-filter: blur(20px);
+                    -moz-filter: blur(20px);
+                    -ms-filter: blur(20px);
+                    -o-filter: blur(20px);
+                    filter: blur(20px);
+            }
+        }
+    }
+
+    #gohome{
+        font-family: abc;
+        display: block;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        border: 1px solid #000;
+        position: absolute;
+        background: rgba(247, 255, 248,0.5);
+        text-align: center;
+        line-height: 40px;
+        text-decoration: none;
+        left: 100px;
+        color: rgb(255, 255, 255);
+    }

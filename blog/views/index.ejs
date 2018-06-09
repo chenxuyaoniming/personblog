@@ -9,8 +9,15 @@
           <h1>Hellow~This is my blog</h1>
           <h2>By <span>Ms.G</span></h2>
         <div id="index-user">
-              <a href="/login">Login</a>
+          <% if(name){ %>
+              <p>&#xe601;：<%-name%></p>
+              <a href="/reload"  >退出登录</a>
+          <% }else{ %>
+               <a href="/login">Login</a>
               <a href="/register">Register</a>
+         <% } %>
+              
+
         </div>
         <div id="index-content-wrap">
                 <div id="index-content">

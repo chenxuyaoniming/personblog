@@ -1,0 +1,181 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+li {
+  list-style: none; }
+
+@font-face {
+  font-family: abc;
+  src: url(font/iconfont.ttf); }
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: url(/images/zoom-bg-7.jpg) no-repeat center/cover; }
+
+#p-bg {
+  position: absolute;
+  right: 20px;
+  top: 20px; }
+  #p-bg p {
+    font-family: abc;
+    color: #81effd;
+    margin-right: 20px;
+    float: left; }
+  #p-bg a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: #2c080b;
+    padding: 4px 6px;
+    background: #bebcc2;
+    border-radius: 3px;
+    transition: 0.4s; }
+    #p-bg a:hover {
+      color: #000;
+      background: #fff; }
+
+#p-content-wrap #p-content {
+  margin: 50px auto 0;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 1000px;
+  border-radius: 15px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.5); }
+  #p-content-wrap #p-content #p-content-left {
+    float: left;
+    width: 300px;
+    height: 600px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box; }
+    #p-content-wrap #p-content #p-content-left > img {
+      display: block;
+      margin: 0 auto;
+      width: 80%;
+      padding: 10px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      background: #fff; }
+    #p-content-wrap #p-content #p-content-left #p-content-left-bottom p {
+      text-align: left;
+      text-indent: 40px;
+      font-size: 20px;
+      margin-top: 10px;
+      margin-left: -400px;
+      height: 30px;
+      line-height: 30px;
+      color: #413939;
+      border-bottom: 1px solid #666666; }
+  #p-content-wrap #p-content #p-content-right {
+    height: 600px;
+    width: 650px;
+    float: right;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.5); }
+    #p-content-wrap #p-content #p-content-right ul {
+      width: 600px;
+      height: 550px;
+      margin: 25px auto;
+      border-radius: 15px;
+      overflow: hidden;
+      display: none; }
+      #p-content-wrap #p-content #p-content-right ul li {
+        float: left; }
+        #p-content-wrap #p-content #p-content-right ul li > p {
+          width: 100px;
+          font-size: 60px;
+          text-align: center;
+          background: red;
+          height: 550px;
+          float: left;
+          color: #eeeeee;
+          background: rgba(129, 235, 102, 0.4);
+          font-family: 'Times New Roman', Times, serif;
+          padding-top: 40px;
+          cursor: pointer; }
+        #p-content-wrap #p-content #p-content-right ul li div {
+          float: left;
+          overflow: hidden;
+          background: rgba(176, 218, 62, 0.4); }
+        #p-content-wrap #p-content #p-content-right ul li:nth-of-type(1) > div {
+          width: 200px;
+          float: left;
+          height: 550px; }
+          #p-content-wrap #p-content #p-content-right ul li:nth-of-type(1) > div img {
+            width: 80%;
+            display: block;
+            border-radius: 5px;
+            margin: 17px auto; }
+        #p-content-wrap #p-content #p-content-right ul li:nth-of-type(2) > div {
+          width: 0px;
+          height: 550px; }
+          #p-content-wrap #p-content #p-content-right ul li:nth-of-type(2) > div img {
+            width: 80%;
+            display: block;
+            border-radius: 5px;
+            margin: 17px auto; }
+        #p-content-wrap #p-content #p-content-right ul li:nth-of-type(3) > div {
+          width: 0px;
+          height: 550px; }
+          #p-content-wrap #p-content #p-content-right ul li:nth-of-type(3) > div img {
+            width: 80%;
+            display: block;
+            border-radius: 5px;
+            margin: 10px auto; }
+        #p-content-wrap #p-content #p-content-right ul li:nth-of-type(4) > div {
+          width: 0px;
+          height: 550px; }
+          #p-content-wrap #p-content #p-content-right ul li:nth-of-type(4) > div #book {
+            width: 180px;
+            height: 300px;
+            margin: 30px 10px;
+            background: #5682d3;
+            position: relative;
+            box-shadow: 0 0 10px 0 #807f7f; }
+            #p-content-wrap #p-content #p-content-right ul li:nth-of-type(4) > div #book > p {
+              font-size: 24px;
+              position: absolute;
+              right: 10px;
+              top: 30px;
+              width: 30px;
+              height: 240px;
+              background: #fff;
+              border: 1px solid #000;
+              text-align: center; }
+  #p-content-wrap #p-content:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.8);
+    background: url(/images/zoom-bg-7.jpg) no-repeat center/cover;
+    z-index: -1;
+    background-attachment: fixed;
+    -webkit-filter: blur(20px);
+    -moz-filter: blur(20px);
+    -ms-filter: blur(20px);
+    -o-filter: blur(20px);
+    filter: blur(20px); }
+
+#gohome {
+  font-family: abc;
+  display: block;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: absolute;
+  background: rgba(247, 255, 248, 0.5);
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  left: 100px;
+  color: white; }
