@@ -1,0 +1,104 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+@font-face {
+  font-family: abc;
+  src: url(font/iconfont.ttf); }
+
+body {
+  width: 100vw;
+  height: 100vh; }
+
+#index-bg {
+  display: none;
+  font-family: 'Times New Roman', Times, serif;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: url(/images/zoom-bg-1.jpg) no-repeat center; }
+  #index-bg #index-user {
+    position: absolute;
+    right: 20px;
+    top: 20px; }
+    #index-bg #index-user a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #2c080b;
+      padding: 4px 6px;
+      background: #bebcc2;
+      border-radius: 3px;
+      transition: 0.4s; }
+      #index-bg #index-user a:hover {
+        color: #000;
+        background: #fff; }
+  #index-bg h1, #index-bg h2 {
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 100px;
+    font-weight: 100; }
+  #index-bg h2 {
+    margin-top: 10px;
+    font-size: 30px; }
+    #index-bg h2 span {
+      color: #23d68c; }
+
+#index-content-wrap {
+  margin-top: 100px; }
+  #index-content-wrap #index-content {
+    width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    display: flex;
+    justify-content: space-around; }
+    #index-content-wrap #index-content div {
+      font-family: abc;
+      height: 250px;
+      width: 220px;
+      float: left;
+      position: relative;
+      background: rgba(0, 0, 0, 0.8);
+      border-radius: 10px;
+      cursor: pointer;
+      transition: 0.4s;
+      margin: 20px 0; }
+      #index-content-wrap #index-content div span {
+        display: block;
+        position: absolute;
+        width: 226px;
+        height: 250px;
+        left: -3px;
+        top: 10px;
+        transform: scaleX(0);
+        transition: 0.4s;
+        border-bottom: 3px solid #f0f8f6; }
+      #index-content-wrap #index-content div b {
+        font-size: 60px;
+        position: absolute;
+        left: 50%;
+        margin-left: -30px;
+        top: 50px;
+        color: #fff;
+        transition: 0.4s; }
+      #index-content-wrap #index-content div p {
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        position: absolute;
+        bottom: 30px;
+        left: 50%;
+        margin-left: -40px;
+        transition: 0.4s; }
+      #index-content-wrap #index-content div:hover {
+        background: rgba(255, 255, 255, 0.7);
+        box-shadow: 0 0 30px 0 #1149ff; }
+        #index-content-wrap #index-content div:hover p {
+          color: #493eaf; }
+        #index-content-wrap #index-content div:hover b {
+          color: #4a3dff; }
+        #index-content-wrap #index-content div:hover span {
+          transform: scaleX(1); }
