@@ -13,7 +13,12 @@ $(function(){
                 location.href='/person';
         })
       
-       
+        $("#index-prud").click(function(){
+                location.href='/produce'
+        })
+       $("#index-blog").click(function(){
+               location.href = '/blog'
+       })
 
 
 

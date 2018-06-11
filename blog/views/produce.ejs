@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>person</title>
+  <link rel='stylesheet' href='/stylesheets/person.css' />
+  <link rel="stylesheet" href="/stylesheets/produce.css">
+</head>
+
+<body>
+  <div id="p-bg" class="prud-bg">
+    <% if(name){ %>
+      <p>&#xe601;：
+        <%-name%>
+      </p>
+      <a href="/reload">退出登录</a>
+      <% }else{ %>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <% } %>
+  </div>
+  <a href="/" id="gohome">&#xe605;</a>
+  <div id="p-content-wrap">
+    <div id="p-content" class="prod-content">
+      <div id="prod-text">
+        <div id="prod-text-inner">
+          <p>鲁迅（1881-1936），浙江绍兴人，原名周樟寿，字豫山，1892年进三味书屋读书时才改为豫才，1898年去南京求学时取学名周树人。</p>
+          <p>“鲁迅”是1918年5月在《新青年》上发表《狂人日记》是始用的笔名。</p>
+          <p>鲁迅出身于没落的封建士大夫家庭，少年时代，正适家道式微，祖父周介孚因科场案入狱，父亲患病不起，他在从小康人家坠入困顿的途中，深深领略了社会的世态炎凉.</p>
+          <p>1898年，鲁迅到南京进江南水师学堂读书，第二年又转入江南陆师学堂附设的矿物学堂。</p>
+          <p>1902年3月鲁迅考取官费留学到日本。904年4月，鲁迅在弘文学院毕业。同年9月，他离开东京，前往仙台医专学医。</p>
+          <p>1906年4月初，鲁迅离开仙台回到东京，开始了他的文学活动。1909年离开日本返回祖国。</p>
+          <p>1912年，应教育总长蔡元培的邀请，鲁迅到南京临时政府教育部人之，不就，随部迁到北京。 　年期，鲁迅参与《新青年》杂志的活动。5月，发表在现代文学史上具有划时代意义的第一篇白话小说《狂人日记》。
+          </p>
+          <p>和1926年，鲁迅在先后发生的“女师大风潮”和“三·一八惨案”中声援学生，支持群众东征。随后受北洋政府通缉的威胁，与1926年8月26日离开北京前往厦门大学担任文科教授。1927年，抵达广州，任文科主任兼教务主任。</p>
+          <p>1927年，离开广州，10月定居上海。1928年主编《语丝》半月刊，并与郁达夫合编《奔流》月刊，1929年期，组织朝花社，编译《近代世界短篇小说集》，出版《朝花周刊》和《朝花旬刊》等。</p>        
+          <p>1930年，加入中国左翼作家联盟。参加了“左联”的领导工作。先后编辑过《萌芽》、《前哨》等公开或秘密的刊物。</p>        
+          <p>在创作上，鲁迅主要是以杂文为武器，投身于反国民党文化围剿的斗争，同时也以历史为题材创作小说。</p>        
+          <p>1936年10月19日，鲁迅在上海逝世。</p>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+
+
+  <script src="/javascripts/jquery-1.11.0.js"></script>
+  <script src="/javascripts/index.js">   
+  </script>
+  <script src="/javascripts/person.js"></script>
+  <script src="/javascripts/produce.js"></script>
+</body>
+
+</html>

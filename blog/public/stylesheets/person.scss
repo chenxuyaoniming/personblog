@@ -10,8 +10,8 @@ li{
     src: url(font/iconfont.ttf)
 }
 body{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     background: url(/images/zoom-bg-7.jpg) no-repeat center/cover;
 }
     #p-bg{
@@ -43,7 +43,7 @@ body{
     #p-content-wrap{
         
         #p-content{
-            margin: 50px auto 0;
+            margin: 80px auto 0;
             padding: 20px;
             box-sizing: border-box;
             width: 1000px;

@@ -1,0 +1,22 @@
+body {
+  background: url(/images/zoom-bg-5.jpg) no-repeat center !important; }
+
+.prod-content {
+  height: 600px; }
+  .prod-content:after {
+    background: url(/images/zoom-bg-5.jpg) no-repeat center !important; }
+
+#prod-text {
+  width: 96%;
+  height: 580px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -48%;
+  margin-top: -290px;
+  overflow: auto; }
+  #prod-text p {
+    text-indent: 56px;
+    font-size: 28px;
+    color: #d9f0f3;
+    font-family: 'Times New Roman', Times, serif; }

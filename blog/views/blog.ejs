@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>blog</title>
+  <link rel='stylesheet' href='/stylesheets/person.css' />
+  <link rel="stylesheet" href="/stylesheets/blog.css">
+</head>
+
+<body>
+  <div id="p-bg">
+    <% if(name){ %>
+      <p>&#xe601;：
+        <%-name%>
+      </p>
+      <a href="/reload">退出登录</a>
+      <% }else{ %>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <% } %>
+  </div>
+  <a href="/" id="gohome">&#xe605;</a>
+  <div id="blog-content-wrap">
+    <div id="blog-content">
+      <h1>个人技术文章</h1>
+      <div id="blog-at">
+
+        <%if(newarr){%>
+          <%newarr.map(function(item){%>
+            <div class="blog-text">
+              <div class="blog-a-top"></div>
+              <div class="blog-a-bottom"></div>
+              <a href="/content?id=<%- item._id%>">
+                <p>
+                  <%- item.title%>
+                </p>
+                <span>
+                  <%- item.content%>
+                </span>
+                <img src="/images/bg1.png" alt="">
+              </a>
+            </div>
+            <% })%>
+
+              <%}%>
+      </div>
+      <div id="blog-page">
+        <%if(p<=1){%>
+                  <a href="/blog?page=1">上一页</a>
+          <%}else{%>
+                  <a href="/blog?page=<%-p - 1%>">上一页</a>
+           <%}%>
+      
+            <%if(page<6){%>
+                <%for(let i=0;i<page;i++){%>
+                    <a href="/blog?page=<%-i + 1%>"><%-i + 1%></a>
+              <%}%>    
+          <%}else{%>
+                <a href="/blog?page=1">1</a>
+                <a href="/blog?page=2">2</a>
+                <a href="#">。。。。</a>
+                <a href="/blog?page=<%-page - 1%>"><%-page-1 %></a>
+                <a href="/blog?page=<%-page %>"><%-page %></a>
+            <%}%>
+          <a href="/blog?page=<%-p + 1%>">下一页</a>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="/javascripts/jquery-1.11.0.js"></script>
+  <script src="/javascripts/index.js">   
+  </script>
+  <script src="/javascripts/blog.js"></script>
+
+</body>
+
+</html>
