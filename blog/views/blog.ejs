@@ -19,10 +19,13 @@
         <a href="/register">Register</a>
         <% } %>
   </div>
-  <a href="/" id="gohome">&#xe605;</a>
+ 
   <div id="blog-content-wrap">
+     
     <div id="blog-content">
       <h1>个人技术文章</h1>
+      <strong id="write">我要创作</strong>
+      <a href="/" id="gohome" class="blog-go">&#xe605;</a>
       <div id="blog-at">
 
         <%if(newarr){%>
@@ -62,18 +65,37 @@
                 <a href="/blog?page=<%-page - 1%>"><%-page-1 %></a>
                 <a href="/blog?page=<%-page %>"><%-page %></a>
             <%}%>
-          <a href="/blog?page=<%-p + 1%>">下一页</a>
+            <%if(p>=page){%>
+              <a href="/blog?page=<%-page%>">下一页</a>
+      <%}else{%>
+              <a href="/blog?page=<%-p + 1%>">下一页</a>
+       <%}%>
       </div>
     </div>
   </div>
 
+  <div id="blog-write">
+        <div id="blog-write-content" >
+              <label for="title">标题:</label>
+              <input type="text" name="" id="title">
+              <label for="editor">内容：</label>
+              <div id="editor"></div>
+              <div id="blog-write-btn">
+                 <button id="blog-btn1">取消</button>
+                 <button id="blog-btn2">发表</button>
+              </div>
+             
+        </div>
 
+  </div>
 
+  <script src="/javascripts/wangEditor.js"></script>
   <script src="/javascripts/jquery-1.11.0.js"></script>
-  <script src="/javascripts/index.js">   
-  </script>
+  <script src="/javascripts/index.js"></script>
   <script src="/javascripts/blog.js"></script>
-
+  <script>
+  
+  </script>
 </body>
 
 </html>

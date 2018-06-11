@@ -1,7 +1,15 @@
-
-
+*{
+    margin: 0;
+    padding: 0;
+}
+html{
+    width: 100%;
+    height: 100%;
+}
 body{
+    height: 100% !important;
     background: url(/images/bg1.jpg) no-repeat center/cover !important;
+    overflow: hidden;
 }
 
 #blog-content-wrap{
@@ -17,6 +25,19 @@ body{
         padding: 10px;
         box-sizing: border-box;
         position: relative;
+        >strong{
+            position: absolute;
+            left: -80px;
+            top: 120px;
+            display: block;
+            height: 50px;
+            width: 50px;
+            cursor: pointer;
+            border-radius: 5px;
+            background: rgba(33, 121, 216,.7);
+            text-align: center;
+            padding-top: 10px;
+        }
         h1{
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             text-align: center;
@@ -40,6 +61,7 @@ body{
                     top: 130px;
                     margin-left: -100px;
                     z-index: 1;
+                    display: block;
                     text-align: center;
                     text-overflow: ellipsis;
                     overflow: hidden;
@@ -134,4 +156,76 @@ body{
     }
 
 
+}
+.blog-go{
+    position: absolute !important;
+    left: -80px !important;
+    top: 0 !important;
+
+}
+
+#blog-write{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: rgba(139, 153, 218, 0.6);
+    display: none;
+    z-index: 5;
+    top: 0;
+    #blog-write-content{
+        padding: 15px;
+        width: 800px;
+        height: 400px;
+        background: #22285e;
+        position: absolute;
+        top:0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+        border-radius: 10px;
+        font-size: 20px;
+        label{
+            font-size: 24px;
+            color: #fff;
+        }
+        #editor{
+            width: 100%;
+            height: 250px !important;
+            overflow: visible;
+            background: #ececec;
+            border: none !important;
+
+            margin-bottom: 10px;
+            .w-e-text-container{
+                height: 200px !important;
+            }
+        }
+        input{
+            margin-bottom: 10px;
+            width: 100%;
+            height: 40px;
+            border: none;
+            background: #ececec;
+        }
+        #blog-write-btn{
+            width: 100%;
+            button{
+                width: 100px;
+                height: 40px;
+                border:none;
+                // background: #37a561;
+                color: #fff;
+            }
+            #blog-btn1{
+                float: left;
+                background: #aa2a2a;
+            }
+            #blog-btn2{
+                background: #37a561;
+                float: right;
+            }
+        }
+      
+    }
 }

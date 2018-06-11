@@ -73,4 +73,26 @@ router.get("/blog",(req,res)=>{
     })
   })
 })
+//发表
+router.post('/blog',(req,res)=>{
+  let tit = req.body;
+  console.log(tit)
+  mongodb.connect(db_str,(err,datebase)=>{
+    datebase.collection('txt',(err,coll)=>{
+      coll.save(tit,(err)=>{
+        if (err){
+          res.send(err);
+        }else{
+          res.send("1");
+        }
+        datebase.close();
+      })
+    })
+  })
+})
+
+
+
+
+
 module.exports = router;
