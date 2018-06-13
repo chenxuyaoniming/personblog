@@ -3,6 +3,7 @@ var router = express.Router();
 var mongodb = require('mongodb').MongoClient;
 var db_str = 'mongodb://localhost:27017/zz';
 var session = require('express-session');
+var object = require('mongodb').ObjectId;
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   res.send('respond with a resource');
@@ -42,6 +43,22 @@ router.post('/register',function(req,res){
   })
 })
 
+router.post('/del',(req,res)=>{
+  let id = object(req.body.id);
+  console.log(id);
+  mongodb.connect(db_str,(err,datebase)=>{
+    datebase.collection('txt',(err,coll)=>{
+      coll.remove({'_id':id},(err)=>{
+          if(err){
+            res.send(err)
+          }else{
+            res.send("1")
+          }
+          datebase.close();
+      })
+    })
+  })
+})
 
 
 

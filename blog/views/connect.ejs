@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>匿名交流</title>
+  <link rel='stylesheet' href='/stylesheets/person.css' />;
+  <link rel="stylesheet" href="/stylesheets/content.css"/>
+  <link rel="stylesheet" href="/stylesheets/connect.css">
+</head>
+
+<body>
+  <div id="p-bg" class="prud-bg">
+    <% if(name){ %>
+      <p>&#xe601;：
+        <%-name%>
+      </p>
+      <a href="/reload">退出登录</a>
+      <% }else{ %>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <% } %>
+  </div>
+  <div id="p-content-wrap">
+    
+    <div id="p-content" class="content-content">
+        <a href="/" id="gohome" class="content-reload">&#xe605;</a>
+       <div id="connect-left">
+          <div id="connect-left-top">
+
+          </div>
+          <div id="connect-left-bottom">
+      
+          </div>
+       </div>
+    </div>
+  </div>
+
+
+
+  <script src="/javascripts/jquery-1.11.0.js"></script>
+  <script src="/javascripts/index.js"></script>
+  <script src="/javascripts/wangEditor.js"></script>
+  <script>
+      var E = window.wangEditor;
+          editor = new E("#connect-left-bottom");
+          editor.customConfig.uploadImgShowBase64 = true ;
+          editor.create();
+
+
+          var  client = new WebSocket("ws://localhost:4396");
+
+                client.onopen=function(){};
+
+                client.onmessage=function(a){
+                  $("#connect-left-top").append('<p>'+a.data+'</p>');
+                       
+                };
+                
+                $(window).keydown(function(event){
+                    if(event.keyCode == 13 && event.ctrlKey){
+                          client.send(editor.txt.html())
+                    }
+                })
+
+
+
+
+  </script>
+</body>
+
+</html>

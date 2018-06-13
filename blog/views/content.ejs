@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>person</title>
+  <link rel='stylesheet' href='/stylesheets/person.css' />;
+  <link rel="stylesheet" href="/stylesheets/content.css"/>
+</head>
+
+<body>
+  <div id="p-bg" class="prud-bg">
+    <% if(name){ %>
+      <p>&#xe601;：
+        <%-name%>
+      </p>
+      <a href="/reload">退出登录</a>
+      <% }else{ %>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <% } %>
+  </div>
+  
+  <div id="content-err">
+      <div>
+        <p>您确定要删除吗？将无法找回</p>
+        <div>
+          <button id="think">我再想想</button>
+          <button id="content-ddd" date-id='<%-arr._id%>'>确定删除</button>
+        </div>
+      </div>
+  </div>
+  <div id="p-content-wrap">
+    
+    <div id="p-content" class="content-content">
+        <%if(danmu){%>
+            <% danmu.map(function(item){ %>
+                   <b class="danmu"><%-item.danmu%></b>
+            <% }) %>
+        <%}%>  
+       
+        <a href="/blog" id="gohome" class="content-reload">&#xe605;</a>
+        <ul id="content-list">
+          <li>
+            <a href="">分享</a>
+            <div>
+               <span>微信</span>
+               <span>微博</span>
+            </div>
+           
+          </li>
+          <li><a href="" id="content-del">删除</a></li>
+        </ul>
+                <h1><%-arr.title%></h1>
+                <%-arr.content%>
+         <div id="danmu-cli">
+              发动弹幕
+              <div id="danmu-inner">
+                <input type="text"  id="dm"/>
+                <button id="danmu-btn" date-id="<%- arr._id %>">发送</button> 
+              </div>
+         </div>       
+    </div>
+  </div>
+
+
+
+  <script src="/javascripts/jquery-1.11.0.js"></script>
+  <script src="/javascripts/index.js"></script>
+  <script src="/javascripts/person.js"></script>
+  <script>
+      $(function(){
+        $("li").find("a").click(function(event){
+          $(this).siblings().slideToggle(300);
+          return false;
+        })
+        $("#content-del").click(function(){
+          $("#content-err").stop().slideDown(300);
+        });
+
+        $("#think").click(function(){
+          $("#content-err").stop().slideUp(300);
+        })
+
+        $("#content-ddd").click(function(){
+            let id = $(this).attr("date-id");
+                $.post('/users/del',{id:id},function(date){
+                  if(date == 1){
+                    alert("文章删除成功！");
+                    location.href='/blog';
+                  }
+                })
+        })
+        for(let i=0 ;i<$(".danmu").length;i++){
+            let time = Math.random()*6000+1000;
+            let speed = Math.random()*5000+3000;
+           setTimeout(function(){
+            let top = Math.floor(Math.random()*480 + 100)
+            let wid = $(".danmu").eq(i).width()
+            $(".danmu").eq(i).css("top",top)
+            $(".danmu").eq(i).fadeIn(200)
+              .animate({right:950-wid},speed)
+                .fadeOut(200)
+          
+            },time)
+        }
+
+        $("#danmu-cli").click(function(){
+          $(this).find("div").slideToggle(300)
+        })
+        $("#dm").click(function(event){
+          event.stopPropagation();
+        })
+        $("#danmu-btn").click(function(event){
+          let id = $(this).attr("date-id");
+          let text = $("#dm").val();
+          $.post("/content",{danmu:$("#dm").val(),spl:id},function(date){
+            if(date == 1){
+              let b = $("<b class='danmu'></b>");
+              b.text(text)
+              $(".content-content").append(b);
+              setTimeout(function(){
+                  b.fadeIn(100)
+                    .animate({right:900},5000)
+                      .fadeOut(200)
+              },200)
+            }
+          })
+          $("#dm").val("")
+          event.stopPropagation();
+        })
+      })
+
+  
+  
+  
+  
+  </script>
+</body>
+
+</html>

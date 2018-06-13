@@ -21,8 +21,8 @@ $(function(){
                 alert("文章发表成功");
                 location.reload();
             }else{
-                alert("网络好像出问题了");
-                location.reload();
+                alert("请您先登录，再发表");
+                // location.reload();
             }
        })
    })

@@ -1,77 +1,96 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>person</title>
-    <link rel='stylesheet' href='/stylesheets/person.css' />
-  </head>
-  <body>
-      <div id="p-bg">
-          <% if(name){ %>
-              <p>&#xe601;：<%-name%></p>
-              <a href="/reload"  >退出登录</a>
-          <% }else{ %>
-               <a href="/login">Login</a>
-              <a href="/register">Register</a>
-         <% } %>
+
+<head>
+  <title>person</title>
+  <link rel='stylesheet' href='/stylesheets/person.css' />
+</head>
+
+<body>
+  <div id="p-bg">
+    <% if(name){ %>
+      <p>&#xe601;：
+        <%-name%>
+      </p>
+      <a href="/reload">退出登录</a>
+      <% }else{ %>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
+        <% } %>
+  </div>
+  <a href="/" id="gohome">&#xe605;</a>
+  <div id="p-content-wrap">
+    <div id="p-content">
+      <div id="p-content-left">
+        <img src="/images/timg.gif" alt="对，就是我" title="我是一只小猫咪">
+        <div id="p-content-left-bottom">
+          <p>姓名：
+            <span>郜超峰</span>
+          </p>
+          <p>职业：
+            <span>前端工程师</span>
+          </p>
+          <p>工作经验：
+            <span>两年</span>
+          </p>
+          <p>Phone：
+            <span>157****8668</span>
+          </p>
+          <p>address：
+            <span>xxxxxxxxx</span>
+          </p>
         </div>
-        <a href="/" id="gohome">&#xe605;</a>
-        <div id="p-content-wrap">
-                <div id="p-content">
-                    <div id="p-content-left">
-                          <img src="/images/timg.gif" alt="对，就是我" title="我是一只小猫咪">
-                          <div id="p-content-left-bottom">
-                                    <p>姓名：<span>郜超峰</span></p>
-                                    <p>职业：<span>前端工程师</span></p>
-                                      <p>工作经验：<span>两年</span></p>
-                                     <p>Phone：<span>157****8668</span></p> 
-                                     <p>address：<span>xxxxxxxxx</span></p>
-                          </div>
-                    </div>
-                    <div id="p-content-right">
-                          <ul>
-                            <li><p>喜欢的照片</p>
-                                    <div  class="per-open">
-                                            <img src="/images/cat1.jpg" alt="">
-                                            <img src="/images/cat2.jpg" alt="">
-                                            <img src="/images/cat3.jpg" alt="">
-                                    </div>
-                            </li>
-                            <li><p>喜欢的电影</p>
-                                    <div class="per-open">
-                                      <img src="/images/mov1.jpg" alt="">
-                                      <img src="/images/mov2.jpg" alt="">
-                                      <img src="/images/mov3.jpg" alt="">
-                                      <img src="/images/mov4.jpg" alt="">
-                                    </div>
-                            </li>
-                            <li><p >喜欢的音乐</p>
-                                    <div class="per-open">
-                                        <audio src="http://sc1.111ttt.cn/2017/1/05/09/298092032442.mp3" controls="controls" width="50px" height="300px"></audio>
-                                        <img src="/images/musi1.gif" alt="">
-                                        <img src="/images/musi2.gif" alt="">
-                                        <img src="/images/musi3.gif" alt="">
-                                      </div>
-                            </li>
-                            <li><p >喜欢的书籍</p>
-                                  <div class="per-open">
-                                          <div id="book">
-                                                  <p>
-                                                    演员的自我修养
-                                                  </p>
-                                          </div>
-                                  </div>
-                                </li>
-                          </ul>
-                    </div>
-                </div>
-        </div>
+      </div>
+      <div id="p-content-right">
+        <ul>
+          <li>
+            <p>喜欢的照片</p>
+            <div class="per-open">
+              <img src="/images/cat1.jpg" alt="">
+              <img src="/images/cat2.jpg" alt="">
+              <img src="/images/cat3.jpg" alt="">
+            </div>
+          </li>
+          <li>
+            <p>喜欢的电影</p>
+            <div class="per-open">
+              <img src="/images/mov1.jpg" alt="">
+              <img src="/images/mov2.jpg" alt="">
+              <img src="/images/mov3.jpg" alt="">
+              <img src="/images/mov4.jpg" alt="">
+            </div>
+          </li>
+          <li>
+            <p>喜欢的音乐</p>
+            <div class="per-open">
+              <audio src="http://sc1.111ttt.cn/2017/1/05/09/298092032442.mp3" controls="controls" width="50px" height="300px"></audio>
+              <img src="/images/musi1.gif" alt="">
+              <img src="/images/musi2.gif" alt="">
+              <img src="/images/musi3.gif" alt="">
+            </div>
+          </li>
+          <li>
+            <p>喜欢的书籍</p>
+            <div class="per-open">
+              <div id="book">
+                <p>
+                  演员的自我修养
+                </p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
 
 
-      <script src="/javascripts/jquery-1.11.0.js"></script>
-      <script src="/javascripts/index.js">   
-      </script>
-      <script src="/javascripts/person.js"></script>
+  <script src="/javascripts/jquery-1.11.0.js"></script>
+  <script src="/javascripts/index.js">   
+  </script>
+  <script src="/javascripts/person.js"></script>
 
-  </body>
+</body>
+
 </html>

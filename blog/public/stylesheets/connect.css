@@ -1,0 +1,24 @@
+#connect-left {
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  float: left; }
+  #connect-left #connect-left-top {
+    height: 74%;
+    border-radius: 5px;
+    padding: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 0 10px 0 #b3a5a5 inset;
+    color: #fff;
+    box-sizing: border-box;
+    overflow: auto; }
+  #connect-left #connect-left-bottom {
+    height: 20%;
+    width: 100%;
+    margin-top: 20px;
+    color: #fff; }
+    #connect-left #connect-left-bottom .w-e-toolbar {
+      border-radius: 10px; }
+    #connect-left #connect-left-bottom .w-e-text-container {
+      border-radius: 10px;
+      height: 100px !important; }

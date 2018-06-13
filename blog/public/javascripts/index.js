@@ -19,6 +19,9 @@ $(function(){
        $("#index-blog").click(function(){
                location.href = '/blog'
        })
+       $("#index-connect").click(function(){
+               location.href = '/connect'
+       })
 
 
 

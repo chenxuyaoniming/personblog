@@ -4,6 +4,9 @@ var session = require('express-session');
 var mongodb = require('mongodb').MongoClient;
 var db_str = 'mongodb://localhost:27017/zz';
 var async = require('async');
+
+var object = require('mongodb').ObjectId;
+
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'GCF的个人博客' ,name:req.session.name});
@@ -49,7 +52,7 @@ router.get("/blog",(req,res)=>{
 
   mongodb.connect(db_str,(err,datebase)=>{
     datebase.collection('txt',(err,coll)=>{
-      coll.find({}).toArray((err,arr)=>{
+      coll.find({}).sort({_id:-1}).toArray((err,arr)=>{
         async.series([
           function(callback){
             count = arr.length;
@@ -76,22 +79,74 @@ router.get("/blog",(req,res)=>{
 //发表
 router.post('/blog',(req,res)=>{
   let tit = req.body;
-  console.log(tit)
-  mongodb.connect(db_str,(err,datebase)=>{
-    datebase.collection('txt',(err,coll)=>{
-      coll.save(tit,(err)=>{
-        if (err){
-          res.send(err);
-        }else{
-          res.send("1");
-        }
-        datebase.close();
+  if(req.session.name){
+       mongodb.connect(db_str,(err,datebase)=>{
+      datebase.collection('txt',(err,coll)=>{
+        coll.save(tit,(err)=>{
+          if (err){
+            res.send(err);
+          }else{
+            res.send("1");
+          }
+          datebase.close();
+        })
       })
+    })
+   }else{
+    res.send('2')
+   }
+ 
+})
+//博客详情
+router.get('/content',(req,res)=>{
+  let  id = object(req.query.id);
+  let  arr1 = null;
+  let  danmu = null;
+  mongodb.connect(db_str,(err,database)=>{
+    async.series([
+      function(callback){
+          database.collection('txt',(err,coll)=>{
+            coll.find({'_id':id}).toArray((err,arr)=>{
+              arr1 = arr[0];
+              // console.log(arr)
+               callback(null,"")
+            })
+          })
+         
+        },
+      function(callback){
+         database.collection(req.query.id,(err,coll)=>{
+            coll.find({}).toArray((err,arr1)=>{
+              danmu = arr1;
+              // console.log(danmu)
+              callback(null,"") 
+            })
+          })
+          
+        },
+        function(callback){
+          console.log(danmu,arr1)
+          res.render('content',{arr:arr1,danmu:danmu,name:req.session.name});
+          database.close();
+        }
+      ])
+    })  
+})
+//弹幕发送
+router.post('/content',(req,res)=>{
+  console.log(req.body)
+   mongodb.connect(db_str,(err,database)=>{
+    database.collection(req.body.spl,(err,coll)=>{
+      coll.insert(req.body);
+      res.send("1");
+      database.close()
     })
   })
 })
-
-
+//直播交流
+router.get('/connect',(req,res)=>{
+  res.render('connect',{name:req.session.name})
+})
 
 
 
