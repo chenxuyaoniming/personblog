@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>后台管理系统</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+  </head>
+  <body>
+  	<div id="zhuce">
+  		<p>注册?</p>
+  		<div id="zhuce-list">
+  			用户名：<input type="text" id='zhuce-user' placeholder="仅支持手机号注册">
+  			密码：<input type="password" id="zhuce-pass" placeholder="密码发送到您的手机">
+  			<input type="button" id="yzm" value="发送密码" date-id="1">
+  			<input type="button" id="zhuce-btn" value="注册" date-id="2">
+  		</div>
+  	</div>
+   <div id="denglu">
+   		<div id="denglu-up">
+   			<p>&#xe601;</p>
+   			<span>后台管理系统登录</span>
+   			<form action="">
+   				<input type="text" id="user" placeholder="输入用户名">
+   				<input type="password" id="pass" placeholder="请输入密码">
+   				<button id="btn">登录</button>
+   			</form>
+   		</div>
+   </div>
+<!-- //////////////////////////////////////////////////// -->
+
+
+
+	<div id="menu">
+		<ul>
+			<li><span>&#xe600;</span>数据查看</li>
+			<li><span>&#xe60b;</span>数据增加</li>
+			<li><span>&#xe609;</span>数据搜索</li>
+			<li><span>&#xe603;</span>数据修改</li>
+			<li><span>&#xe60b;</span>数据删除</li>
+			<li><span>&#xe601;</span>用户注销</li>
+		</ul>
+	</div>
+   <div id="footer">
+ 		<div id="footer-left">
+ 			<p>开始</p>
+ 		</div>
+	  	<div id="footer-right">
+	  		<p>&#xe601; Admin:<span id="admin"></span></p>
+	  	</div>
+   </div>
+   <!-- //////////////////////////////////////////	 -->
+   <!-- 数据总览 -->
+	<div id="coll"  class="box">
+		<div class="box-top">
+			<i>数据查看</i>
+			<span>&#xe605;</span>
+		</div>
+		<table class="table" >
+			<tr>
+				<th>姓名</th>
+				<th>部门</th>
+				<th>打卡时间</th>
+				<th>出勤率</th>
+				<th>操作</th>
+			</tr>
+		</table>
+		<div class="page">
+			<b>上一页</b>
+			<b>下一页</b>
+		</div>
+	</div>
+	<!-- 数据删除 -->
+	<div id="remove"  class="box">
+		<div class="box-top">
+			<i>数据增加</i>
+			<span>&#xe605;</span>
+		</div>
+	</div>
+	<!-- 数据更新 -->
+	<div id="update"  class="box">
+		<div class="box-top">
+			<i>数据搜索</i>
+			<span>&#xe605;</span>
+		</div>
+	</div>
+	<!-- 数据搜索 -->
+	<div id="find"  class="box">
+		<div class="box-top">
+			<i>数据修改</i>
+			<span>&#xe605;</span>
+		</div>
+	</div>
+	<!-- 数据增加 -->
+	<div id="save"  class="box">
+		<div class="box-top">
+			<i>数据删除</i>
+			<span>&#xe605;</span>
+		</div>
+	</div>
+	
+
+
+	<!-- /////////////////////////////退出/////////////////// -->
+
+	<div id="back">
+		<p>您确定要退出登陆吗？</p>
+		<div>
+			<span id="no">取消</span>
+			<span id="yes">确定</span>
+		</div>
+	</div>
+	<!-- /////////////////////////// -->
+	<div id="time">
+		<i></i>:<i></i>:<i></i>
+	</div>
+
+	<script type="text/javascript" src="/javascripts/jquery-1.11.0.js"></script>
+   <script type="text/javascript" src="/javascripts/index.js"></script>
+  </body>
+</html>
