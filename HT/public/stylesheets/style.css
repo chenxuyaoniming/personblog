@@ -22,7 +22,6 @@ body {
   overflow: hidden; }
 
 #denglu {
-  display: none;
   width: 100%;
   height: 100%;
   background: #08169d;
@@ -72,7 +71,6 @@ body {
         background: #fff; }
 
 #zhuce {
-  display: none;
   position: absolute;
   width: 50px;
   height: 50px;
@@ -188,10 +186,29 @@ body {
   left: 400px;
   top: 50px;
   border: 1px solid #aaa; }
+  .box > span {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    font-family: abc;
+    z-index: 5;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 40px;
+    width: 40px;
+    color: #f40;
+    font-size: 35px;
+    float: right;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+    background: #cecece; }
   .box .box-top {
     width: 100%;
     height: 40px;
-    background: #aaa; }
+    background: #aaa;
+    position: relative; }
     .box .box-top i {
       display: block;
       height: 40px;
@@ -200,32 +217,64 @@ body {
       line-height: 40px;
       float: left;
       color: #fff; }
-    .box .box-top span {
-      cursor: pointer;
-      font-family: abc;
-      z-index: 5;
-      height: 40px;
-      width: 40px;
-      color: #f40;
-      font-size: 35px;
-      float: right;
-      text-align: center;
-      line-height: 40px;
-      display: block;
-      background: #cecece; }
   .box .table {
     background: #aaa;
     width: 900px;
     height: 500px;
     margin: 0 auto;
     margin-top: 10px;
-    font-size: 20px; }
-    .box .table th, .box .table td {
+    font-size: 20px;
+    overflow: auto !important; }
+    .box .table tr {
+      float: left;
       height: 40px;
-      display: inline-block;
+      width: 100%; }
+    .box .table th, .box .table td {
+      height: 40px !important;
+      display: block;
       width: 20%;
+      float: left;
       line-height: 40px;
-      border-bottom: 1px solid #eee; }
+      border-bottom: 1px solid #eee;
+      text-align: center;
+      overflow: hidden; }
+    .box .table span {
+      padding: 3px;
+      background: #645311;
+      color: #fff;
+      cursor: pointer; }
+  .box .box-bottom {
+    width: 900px;
+    height: 500px;
+    margin: 0 auto;
+    margin-top: 10px;
+    background: #aaa; }
+    .box .box-bottom .box-bottom-inner {
+      width: 400px;
+      margin: 20px auto;
+      padding-top: 10px;
+      box-sizing: border-box; }
+      .box .box-bottom .box-bottom-inner label {
+        width: 120px;
+        text-align: left;
+        display: block; }
+      .box .box-bottom .box-bottom-inner input {
+        width: 300px;
+        height: 40px;
+        margin: 10px auto;
+        border: none; }
+      .box .box-bottom .box-bottom-inner button {
+        width: 300px;
+        height: 40px;
+        border: none;
+        background: #fff;
+        font-size: 25px;
+        margin-top: 20px; }
+      .box .box-bottom .box-bottom-inner > strong {
+        display: block;
+        margin-top: 20px;
+        background: none;
+        font-size: 14px !important; }
 
 .page {
   height: 40px;
@@ -233,10 +282,13 @@ body {
   background: #aaa;
   text-align: center;
   line-height: 40px; }
-  .page b:hover {
-    text-decoration: underline; }
+  .page b {
+    cursor: pointer;
+    margin: 0 5px; }
+    .page b:hover {
+      text-decoration: underline; }
 
-#back {
+.tanchu {
   display: none;
   width: 400px;
   height: 300px;
@@ -244,6 +296,7 @@ body {
   position: absolute;
   left: 50%;
   top: 50%;
+  z-index: 20;
   margin-top: -150px;
   margin-left: -200px;
   font-size: 30px;
@@ -251,10 +304,10 @@ body {
   box-sizing: border-box;
   border: 1px solid #000;
   color: #fff; }
-  #back p {
+  .tanchu p {
     width: 100%;
     height: 200px; }
-  #back div {
+  .tanchu div {
     position: absolute;
     bottom: 0;
     width: 90%;
@@ -262,7 +315,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center; }
-    #back div span {
+    .tanchu div span {
       display: block;
       cursor: pointer;
       padding: 5px; }

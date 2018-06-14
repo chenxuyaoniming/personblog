@@ -4,7 +4,7 @@ var mongodb = require("mongodb").MongoClient;
 var object = require("mongodb").ObjectId;
 var db_str = "mongodb://localhost:27017/zz"
 var session = require("express-session");
-
+var async = require("async");
 const SMSClient = require('@alicloud/sms-sdk');
 const accessKeyId = 'LTAIyY2rWERNxjj8';
 const secretAccessKey = 'Yxpd9OF4lhqWFEgNdknG8IfhkgCe3E';
@@ -18,8 +18,9 @@ router.post('/login',(req,res)=>{
 	mongodb.connect(db_str,(err,database)=>{
 		database.collection('user2',(err,coll)=>{
 			coll.find(req.body).toArray((err,arr)=>{
-				if(arr){
-					res.send("1");
+				if(arr.length>0){
+					req.session.name = req.body.name;
+					res.send("1");					
 				}else{
 					res.send('2')
 				}
@@ -45,7 +46,7 @@ router.post('/registor',(req,res)=>{
 				database.collection('user2',(err,coll)=>{
 					coll.save({name:req.body.name,pass:req.body.pass},(err)=>{
 						if(err){
-							res.session.name = req.body.name;
+							
 							res.send("1");
 						}else{
 							res.send('2');
@@ -89,5 +90,117 @@ function yzm(){
 	var code = Math.floor(Math.random()*10000);
 	return code  ;
 }
+////////////////获取数据
+
+router.post('/dk',(req,res)=>{
+	let page = null;
+	let count = null;
+	let num = 11;
+	let p=1;
+	let arr1 = null;
+	console.log(req.body)
+	if(req.body.p){
+		p = req.body.p
+	}else{
+		p = 1;
+	}
+	if(req.body.p<1){
+		p=1;
+	}
+	// console.log(p)
+	mongodb.connect(db_str,(err,database)=>{
+		database.collection('dk',(err,coll)=>{
+			async.series([
+					function(callback){
+						coll.find({}).toArray((err,arr)=>{
+							page = Math.ceil(arr.length/num);
+							callback(null,"")
+						})
+						
+					},
+					function(callback){
+						if(p>page){
+							p=page
+						}
+						coll.find({}).sort({'_id':-1}).limit(num).skip((p-1)*num).toArray((err,arr)=>{
+							arr1 = arr;
+							callback(null,"")
+						})
+						
+					},
+					function(callback){
+						res.send({arr:arr1,page:page,p:p});
+						database.close();
+					}
+
+				])
+			
+		})
+	})
+})
+
+//修改数据
+router.post('/updel',(req,res)=>{
+	let id = object(req.body.id);
+	mongodb.connect(db_str,(err,database)=>{
+		database.collection("dk",(err,coll)=>{
+			coll.update({'_id':id},{$set:{name:req.body.name,Class:req.body.Class,time:req.body.time,pers:req.body.pers}},(err)=>{
+				res.send('1');
+				database.close();
+			})
+		})
+	})
+})
+
+//查找数据
+router.post("/find",(req,res)=>{
+	let id = object(req.body.id);
+	mongodb.connect(db_str,(err,database)=>{
+		database.collection("dk",(err,coll)=>{
+			coll.find({'_id':id}).toArray((err,arr)=>{
+				res.send(arr);
+				database.close();
+			})
+		})
+	})
+})
+//增加数据
+router.post("/save",(req,res)=>{
+	mongodb.connect(db_str,(err,database)=>{
+		database.collection("dk",(err,coll)=>{
+			coll.save(req.body,(err)=>{
+				res.send("1");
+				database.close();
+			})
+		})
+	})
+})
+//删除数据
+router.post('/del',(req,res)=>{
+	let id = object(req.body.id);
+	mongodb.connect(db_str,(err,database)=>{
+		database.collection("dk",(err,coll)=>{
+			coll.remove({'_id':id},(err)=>{
+				res.send("1");
+				database.close();
+			})
+		})
+	})
+})
+
+
+//指定数据查找
+router.post('/fd',(req,res)=>{
+	mongodb.connect(db_str,(err,database)=>{
+		database.collection("dk",(err,coll)=>{
+			coll.find(req.body).toArray((err,arr)=>{
+				console.log(arr)
+				res.send(arr)
+			})
+		})
+	})
+})
+
+
 
 module.exports = router;
