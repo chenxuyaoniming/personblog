@@ -113,6 +113,7 @@ body {
   height: 50px;
   border: 1px solid #00f;
   position: absolute;
+  z-index: 100;
   bottom: 0;
   left: -1px;
   border-top: 1px solid #33018e;
@@ -150,6 +151,7 @@ body {
   height: 500px;
   background: rgba(10, 1, 89, 0.8);
   position: absolute;
+  z-index: 105;
   left: 1px;
   bottom: 50px; }
   #menu ul li {
@@ -167,12 +169,15 @@ body {
 
 #time {
   width: 200px;
-  height: 40px;
+  height: 60px;
   position: absolute;
   top: 20px;
   left: 50px;
   color: #fff;
-  font-size: 35px; }
+  font-size: 35px;
+  border: 1px solid #ddd;
+  text-align: center;
+  line-height: 60px; }
   #time i {
     font-style: normal; }
 
