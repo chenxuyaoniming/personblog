@@ -98,7 +98,6 @@ router.post('/dk',(req,res)=>{
 	let num = 11;
 	let p=1;
 	let arr1 = null;
-	console.log(req.body)
 	if(req.body.p){
 		p = req.body.p
 	}else{
@@ -107,7 +106,14 @@ router.post('/dk',(req,res)=>{
 	if(req.body.p<1){
 		p=1;
 	}
-	// console.log(p)
+	let a = {'_id':-1}
+	if(req.body.pers){
+		a = {'pers':req.body.pers}
+	}
+	if(req.body.time){
+		a = {'time':req.body.time}
+	}
+	console.log(a)
 	mongodb.connect(db_str,(err,database)=>{
 		database.collection('dk',(err,coll)=>{
 			async.series([
@@ -122,7 +128,7 @@ router.post('/dk',(req,res)=>{
 						if(p>page){
 							p=page
 						}
-						coll.find({}).sort({'_id':-1}).limit(num).skip((p-1)*num).toArray((err,arr)=>{
+						coll.find({}).sort(a).limit(num).skip((p-1)*num).toArray((err,arr)=>{
 							arr1 = arr;
 							callback(null,"")
 						})
@@ -181,6 +187,7 @@ router.post('/del',(req,res)=>{
 	mongodb.connect(db_str,(err,database)=>{
 		database.collection("dk",(err,coll)=>{
 			coll.remove({'_id':id},(err)=>{
+				console.log("11123")
 				res.send("1");
 				database.close();
 			})
@@ -190,12 +197,12 @@ router.post('/del',(req,res)=>{
 
 
 //指定数据查找
-router.post('/fd',(req,res)=>{
+router.get('/fd',(req,res)=>{
 	mongodb.connect(db_str,(err,database)=>{
 		database.collection("dk",(err,coll)=>{
-			coll.find(req.body).toArray((err,arr)=>{
-				console.log(arr)
-				res.send(arr)
+			coll.find({}).toArray((err,arr)=>{
+				res.send(arr);
+				database.close();
 			})
 		})
 	})
