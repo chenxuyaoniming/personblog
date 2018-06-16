@@ -107,11 +107,14 @@ router.post('/dk',(req,res)=>{
 		p=1;
 	}
 	let a = {'_id':-1}
-	if(req.body.pers){
-		a = {'pers':req.body.pers}
+	if(req.body.px == 'xm'){
+		a = {'name':1}
 	}
-	if(req.body.time){
-		a = {'time':req.body.time}
+	if(req.body.px == 'gh'){
+		a = {'time':1}
+	}
+	if(req.body.px == 'year'){
+		a = {'pers':1}
 	}
 	console.log(a)
 	mongodb.connect(db_str,(err,database)=>{
@@ -128,14 +131,14 @@ router.post('/dk',(req,res)=>{
 						if(p>page){
 							p=page
 						}
-						coll.find({}).sort(a).limit(num).skip((p-1)*num).toArray((err,arr)=>{
+						coll.find({}).collation({"locale": "zh", numericOrdering:true}).sort(a).limit(num).skip((p-1)*num).toArray((err,arr)=>{
 							arr1 = arr;
 							callback(null,"")
 						})
 						
 					},
 					function(callback){
-						res.send({arr:arr1,page:page,p:p});
+						res.send({arr:arr1,page:page,p:p,px:req.body.px});
 						database.close();
 					}
 

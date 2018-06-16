@@ -168,8 +168,8 @@ $(function(){
 	/////////////////////////////////////////////////////////////////
 
 	// 获取所有数据
-	function dk(p,tim1,per1){
-		$.post("/users/dk",{p:p,time:tim1,pers:per1},function(date){
+	function dk(p,pg){
+		$.post("/users/dk",{p:p,px:pg},function(date){
 			$("#coll").find(".table").text("");
 			$(".page").text("")
 			let  str1 = `<tr>
@@ -195,25 +195,26 @@ $(function(){
 				$("#coll").find(".table").append(str1,str2)
 			if(date.page>5){
 				let str1=`<b date-id="${date.p-1}">上一页</b>
-						<b date-id="1"> 1 </b>
-						<b date-id="2"> 2 </b>
+						<b date-id="1" px-id="${date.px}> 1 </b>
+						<b date-id="2" px-id="${date.px}> 2 </b>
 						<b date-id=""> ... </b>
-						<b date-id="${date.page-1}">${date.page-1}</b>
-						<b date-id="${date.page}">${date.page}</b>
-						<b date-id="${date.p+1}>">下一页</b>`;
+						<b date-id="${date.page-1}" px-id="${date.px}>${date.page-1}</b>
+						<b date-id="${date.page}" px-id="${date.px}>${date.page}</b>
+						<b date-id="${date.p+1}>" px-id="${date.px}>下一页</b>`;
 					$('.page').append(str1)	 
 			}else{
-				let str1=`<b date-id="${date.p-1}">上一页</b>`;
+				let str1=`<b date-id="${date.p-1} px-id="${date.px}">上一页</b>`;
 				let str2 = "";
 				for(let i=0;i<date['page'];i++){
-					str2+=`<b date-id="${i+1}">${i+1}</b>`
+					str2+=`<b date-id="${i+1}" px-id="${date.px}">${i+1}</b>`
 				}
-				let  str3 = `<b date-id="${date.p+1}">下一页</b>`;
+				let  str3 = `<b date-id="${date.p+1}  px-id="${date.px}">下一页</b>`;
 				$(".page").append(str1,str2,str3)
 			}
 			$(".page").find('b').click(function(){
 				let id = $(this).attr("date-id");
-				dk(id);
+				let px = $(this).attr("px-id");
+				dk(id,px);
 				event.stopPropagation();
 			});
 			// re()						
@@ -230,8 +231,7 @@ $(function(){
 		let id =$(this).attr("date-id")
 		$.post('/users/updel',{id:id,name:name,Class:Class,time:time,pers:per},function(date){
 			if(date == 1){
-				alert("数据修改成功！");
-				
+				alert("数据修改成功！");			
 				$("#update").hide(300);
 				dk(1)
 			}
@@ -344,32 +344,41 @@ $(function(){
 		};
 		if($tar.attr('class')== 'del'){
 			$("#del-box").show(300)
-				let id = $tar.attr("date-id");
-				$("#del-no").click(function(event){
-					$("#del-box").hide(300);
-					event.stopPropagation();
-				})
-				$("#del-yes").click(function(event){
-					$.post('/users/del',{id:id},function(date){
-						if (date==1) {
-							// alert("数据删除完成");
-							$("#del-box").hide(300);	
-						}
-						dk(1)
-					})
-					event.stopPropagation();
-				})
+			$("#del-yes").attr('date-id',$tar.attr('date-id'))
+				
 		}
 		
+	})
+	////////////////////////删除数据按钮/////////////////////////////
+	$("#del-no").click(function(event){
+		$("#del-box").hide(300);
+		event.stopPropagation();
+	})
+	$("#del-yes").click(function(event){
+		let id = $(this).attr('date-id')
+		$.post('/users/del',{id:id},function(date){
+			if (date==1) {
+				// alert("数据删除完成");
+				$("#del-box").hide(300);	
+			}
+			dk(1)
+		})
+		event.stopPropagation();
 	})
 
 	/////////////////添加删除////////////////////////////
 	// 排序
-	$("#gh").click(function(){
-		dk(1,-1)
-	})
-	$("#year").click(function(){
-		dk(1,null,1)
+	$(".px-btn").click(function(){
+		if($(this).attr('id') == 'xm'){
+			dk(1,'xm')
+		}
+		if($(this).attr('id') == 'gh'){
+			dk(1,'gh')
+		}
+		if($(this).attr('id') == 'year'){
+			dk(1,'year')
+		}
+
 	})
 
 })
